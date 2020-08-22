@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Enregrister une voiture' %}
+
+{% block body %}
+    <div class="container mt-4">
+
+        <h1>Vue Admin</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                <tr>
+                    <td>{{ car.name }}</td>
+                    <td><a href="{{ path('admin.car.create') }}" class="btn btn-secondary">Editer</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

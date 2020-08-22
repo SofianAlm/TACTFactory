@@ -27,34 +27,6 @@ class CarController extends AbstractController {
     }
 
     /**
-     * @Route("/voitures/create", name="create_car.index")
-     * @param ValidatorInterface $validator
-     * @return Response
-     */
-    public function createCar(ValidatorInterface $validator): Response
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $car = new Car();
-        $car->setName('Nom de la voiture');
-        $car->setColor('#808080');
-        $car->setWidth(100, 00);
-        $car->setHeight(100, 00);
-        $car->setNbSeat(5);
-
-        $errors = $validator->validate($car);
-        if (count($errors) > 0) {
-            return new Response((string) $errors, 400);
-        }
-
-        $entityManager->persist($car);
-
-        $entityManager->flush();
-
-        return $this->render('voitures/create/index.html.twig');
-
-    }
-    /**
      * @Route("/voitures", name="cars.index")
      * @param CarRepository $repository
      * @return Response
