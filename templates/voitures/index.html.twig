@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Les Voitures' %}
+
+{% block body %}
+    <h2> Les Voitures</h2>
+    <div class="flex-row">
+        {% for car in cars %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <p class="card-text">{{ car.name }}</p>
+                        </h5>
+                        <p class="card-text">{{ car.color }}</p>
+                        <p class="card-text">{{ car.height }} and {{ car.width }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

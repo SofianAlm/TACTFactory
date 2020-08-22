@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Repository\CarRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
+use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController {
+class HomeController extends AbstractController {
 
     /**
      * @var Environment
@@ -17,7 +20,13 @@ class HomeController {
         $this->twig = $twig;
     }
 
+    /**
+     * @Route("/", name="home")
+     * @param CarRepository $repository
+     * @return Response
+     */
+
     public function index(): Response {
-        return new Response($this->twig->render('pages/home.html.twig'));
+        return $this->render('pages/home.html.twig');
     }
 }
