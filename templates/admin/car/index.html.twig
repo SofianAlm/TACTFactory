@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title 'Enregrister une voiture' %}
+{% block title 'Gérer les voitures' %}
 
 {% block body %}
     <div class="container mt-4">
@@ -22,6 +22,9 @@
                 {% endfor %}
             </tbody>
         </table>
+        <div class="text-right">
+            <a href="{{ path('admin.car.new') }}" class="btn btn-primary">Enregistrer une nouvelle voiture</a>
+        </div>
     </div>
 
 {% endblock %}
