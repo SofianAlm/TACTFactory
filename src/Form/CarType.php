@@ -4,6 +4,9 @@ namespace App\Form;
 
 use App\Entity\Car;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +16,7 @@ class CarType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('nbSeat')
+            ->add('nbSeat', IntegerType::class)
             ->add('color')
             ->add('height')
             ->add('width')
@@ -25,5 +28,11 @@ class CarType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Car::class,
         ]);
+    }
+
+    private function getChoices(){
+        $choices = Car::NBSEAT;
+        $output = [];
+
     }
 }

@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CarRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource()
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Car
 {
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -26,11 +29,18 @@ class Car
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(
+     *     min=1,
+     *     max=9,
+     *     notInRangeMessage = "Vous devez avoir au moins {{ min }} place, et {{ max }} au maximum",
+     *     )
      */
     private $nbSeat;
 
     /**
      * @ORM\Column(type="string", length=7)
+     * @Assert\Regex(
+     *     pattern = "/^#[a-f0-9]{6}$/")
      */
     private $color;
 
@@ -72,6 +82,7 @@ class Car
 
         return $this;
     }
+
 
     public function getColor(): ?string
     {

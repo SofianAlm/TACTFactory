@@ -52,7 +52,7 @@ class AdminCarController extends AbstractController {
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()){
+        if ($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($car);
             $entityManager->flush();
             return $this->redirectToRoute('cars.index');

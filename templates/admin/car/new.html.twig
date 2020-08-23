@@ -3,36 +3,17 @@
 {% block title 'Enregrister une voiture' %}
 
 {% block body %}
-    <div class="container mt-4">
+    <div>
         <h1 align="center">Enregistrer une voiture</h1>
         <br><br><br>
         {{ form_start(form) }}
-        <table align="center">
-            <tr>
-                <td>Nom de la voiture :</td>
-                <td>{{ form(form.name) }}</td>
-            </tr>
-            <tr>
-                <td>Nombre de place :</td>
-                <td>{{ form(form.nbSeat) }}</td>
-            </tr>
-            <tr>
-                <td>Couleur (ex : "#FFFFFF") :</td>
-                <td>{{ form(form.color) }}</td>
-            </tr>
-            <tr>
-                <td>Hauteur (ex : 100,00) :</td>
-                <td>{{ form(form.height) }}</td>
-            </tr>
-            <tr>
-                <td>Largeur (ex : 100,00) :</td>
-                <td>{{ form(form.width) }}</td>
-            </tr>
-        </table>
-    {{ form_rest(form) }}
-    <div align="center">
-        <br><br>
-        <button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>
+        <div>{{ form_row(form.name) }}</div>
+        <div>{{ form_row(form.nbSeat) }}</div>
+        <div>{{ form_row(form.color) }} (ex : #000000) </div>
+        <div>{{ form_row(form.height) }} (ex : 123.45) </div>
+        <div>{{ form_row(form.width) }} (ex : 123.45)</div>
     </div>
+    {{ form_widget(form) }}
+    <button class="btn btn-secondary">{{ button|default('Enregistrer') }}</button>
     {{ form_end(form) }}
 {% endblock %}
