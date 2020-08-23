@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Les places de Parkings' %}
+
+{% block body %}
+    <h2> Les Places de Parking</h2>
+    <div class="flex-row">
+        {% for parkingSpace in parkingSpaces %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">{{ parkingSpace.height }}</p>
+                        <p class="card-text">{{ parkingSpace.width }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

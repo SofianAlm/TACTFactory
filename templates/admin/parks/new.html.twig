@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Enregrister une voiture' %}
+
+{% block body %}
+    <div>
+        <h1 align="center">Enregistrer un Parking</h1>
+        <br><br><br>
+        {{ form_start(form) }}
+        {{ form_start(form2) }}
+        <div>{{ form_row(form.name) }}</div>
+        <div>{{ form_row(form.localisation) }}</div>
+        <div>{{ form_row(form2.height) }} (ex : 123.45) </div>
+        <div>{{ form_row(form2.width) }} (ex : 123.45)</div>
+    </div>
+    {{ form_widget(form) }}
+    {{ form_widget(form2) }}
+    <button class="btn btn-secondary">{{ button|default('Enregistrer') }}</button>
+    {{ form_end(form) }}
+    {{ form_end(form2) }}
+{% endblock %}

@@ -54,6 +54,11 @@ class Car
      */
     private $width;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $parking_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -116,6 +121,18 @@ class Car
     public function setWidth(float $width): self
     {
         $this->width = $width;
+
+        return $this;
+    }
+
+    public function getParkingId(): ?int
+    {
+        return $this->parking_id;
+    }
+
+    public function setParkingId(?int $parking_id): self
+    {
+        $this->parking_id = $parking_id;
 
         return $this;
     }

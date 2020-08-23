@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Les Parkings' %}
+
+{% block body %}
+    <h2> Les Parkings</h2>
+    <div class="flex-row">
+        {% for parking in parkings %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <p class="card-text">{{ parking.name }}</p>
+                        </h5>
+                        <p class="card-text">{{ parking.localisation }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
